@@ -2,8 +2,8 @@
 
 const sidenotes = require("./src/remark-sidenotes-transformer")();
 const wrapInSection = require("./src/wrap-in-section-transformer")();
-const tufteFigureTransformer = require("./src/remark-figure-transformer")();
-const tufteFigureParser = require("./src/remark-figure-parser");
+//const tufteFigureTransformer = require("./src/remark-figure-transformer")();
+//const tufteFigureParser = require("./src/remark-figure-parser");
 
 module.exports = ({ markdownAST }, pluginOptions = {}) => {
   try {
@@ -12,11 +12,11 @@ module.exports = ({ markdownAST }, pluginOptions = {}) => {
     console.error("Error applying sidenotes: ", error);
   }
   wrapInSection(markdownAST);
-  tufteFigureTransformer(markdownAST);
+  //tufteFigureTransformer(markdownAST);
 
   return markdownAST;
 };
 
-module.exports.setParserPlugins = (options) => {
-  return [[tufteFigureParser]];
-};
+//module.exports.setParserPlugins = (options) => {
+//  return [[tufteFigureParser]];
+//};
